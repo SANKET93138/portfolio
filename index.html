@@ -49,6 +49,11 @@
   <div class="reels" id="reelGrid"></div>
 </section>
 
+<section id="tools" class="tools" aria-label="Editing software I use">
+  <h2>Software I edit with</h2>
+  <div class="orbit" id="orbit"><div class="ring"></div><p class="orbit-name" id="orbitName"></p></div>
+</section>
+
 <section id="work" class="section">
   <h2>Selected work</h2>
   <p class="sub">Creators, brands and an animation project I’ve edited or managed.</p>
@@ -95,6 +100,37 @@
     <a class="btn" href="https://www.linkedin.com/in/sanket-parmar-aa607a245" target="_blank" rel="noopener">LinkedIn</a>
   </div>
   <p class="small">parmarsanket177@gmail.com · +91 93138 16021 · Anand, Gujarat, India</p>
+
+  <form class="brief" id="briefForm" novalidate>
+    <h3>Send your project details</h3>
+    <label for="cName">Your name</label>
+    <input id="cName" name="name" type="text" autocomplete="name" required>
+
+    <label for="pName">Project name</label>
+    <input id="pName" name="project" type="text" required>
+
+    <label for="pType">Project type</label>
+    <select id="pType" name="type" required>
+      <option value="" selected disabled>Choose a video type</option>
+      <option>Educational video</option>
+      <option>Podcast video</option>
+      <option>Vlog video</option>
+      <option>Documentary video</option>
+      <option>Other</option>
+    </select>
+
+    <div id="otherWrap" hidden>
+      <label for="pOther">Tell me the video type</label>
+      <input id="pOther" name="other" type="text" placeholder="For example: product ad, wedding film, reel">
+    </div>
+
+    <label for="pBudget">Budget for this video (in ₹)</label>
+    <input id="pBudget" name="budget" type="text" inputmode="numeric" placeholder="For example: 5000" required>
+
+    <p class="err" id="formErr" role="alert" hidden></p>
+    <button class="btn primary" type="submit">Send on WhatsApp</button>
+    <p class="small">This opens WhatsApp with your details already written. Press send in WhatsApp to deliver them to me.</p>
+  </form>
 </section>
 </main>
 
