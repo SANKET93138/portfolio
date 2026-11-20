@@ -1,13 +1,10 @@
-/* ===== My Video Projects: add or edit reels here. Each Google Drive file must be shared as "Anyone with the link".
+/* ===== My Video Projects: add or edit videos here. Each Google Drive file must be shared as "Anyone with the link".
    tag = small label on the card (2+ different tags create filter buttons). desc = one-line description.
-   id = Google Drive file id.  yt = YouTube video id (use it instead of id; add vertical: true for a Short).
+   id = Google Drive file id.  yt = YouTube video id (use it instead of id).
+   vertical: true or false sets the player shape; reels default to tall, YouTube videos to wide.
    youtube = full YouTube link for the "Watch on YouTube" button. duration = for example "1:30".
-   published, client, software ["A","B"], categories ["A","B"] = shown in the Details window. Empty ones are hidden. ===== */
+   published, client, software ["A","B"], categories ["A","B"] = shown on the video page. Empty ones are hidden. ===== */
 const REELS = [
-  { title: "Reel 1", tag: "Reel", desc: "", id: "1B4PRrna5WDJBC6q9PrcMTQsHrAksfNyf", youtube: "", duration: "",
-    published: "", client: "", software: [], categories: [] },
-  { title: "Reel 2", tag: "Reel", desc: "", id: "1KJLljAnw7LwN8DYAIZ8KVOqT4zdg3IYc", youtube: "", duration: "",
-    published: "", client: "", software: [], categories: [] },
   { title: "Reel 3", tag: "Reel", desc: "", id: "1mHYzUv5YS6Q1BEBqQZz69hK58uKP4eqj", youtube: "", duration: "",
     published: "", client: "", software: [], categories: [] },
   { title: "Reel 4", tag: "Reel", desc: "", id: "1gxqARfd9dSUfk0F_YWLv1LvcJxH7yCMG", youtube: "", duration: "",
@@ -34,7 +31,7 @@ const REELS = [
   /* Builds the video page (player on top, details underneath) for REELS[i] */
   window.renderProject = function (i) {
     const r = REELS[i], player = document.getElementById("pvPlayer"), info = document.getElementById("pvInfo");
-    const vertical = !r.yt || r.vertical;
+    const vertical = r.vertical !== undefined ? r.vertical : !r.yt;
     player.className = "pv-player" + (vertical ? " v" : "");
     player.innerHTML = r.yt
       ? '<iframe src="https://www.youtube.com/embed/' + r.yt + '?rel=0" title="' + r.title + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
@@ -44,12 +41,12 @@ const REELS = [
     if (r.duration) { const d = mk("span", "dur"); d.innerHTML = ICON.clock + "<span></span>"; d.querySelector("span").textContent = r.duration; top.appendChild(d); }
     info.append(top, mk("h2", "pvtitle", r.title));
     if (r.desc) info.appendChild(mk("p", "dd", r.desc));
-    const grid = mk("div", "dgrid"), box = mk("div");
+    const g = mk("div", "dgrid"), box = mk("div");
     if (r.published) box.appendChild(row(ICON.cal, "Published", r.published));
     if (r.client) box.appendChild(row(ICON.user, "Client", r.client));
-    if (box.children.length) grid.appendChild(section("Project Details", box));
-    if (r.software && r.software.length) grid.appendChild(section("Software Used", chips(r.software)));
-    if (grid.children.length) info.appendChild(grid);
+    if (box.children.length) g.appendChild(section("Project Details", box));
+    if (r.software && r.software.length) g.appendChild(section("Software Used", chips(r.software)));
+    if (g.children.length) info.appendChild(g);
     if (r.categories && r.categories.length) info.appendChild(section("Categories", chips(r.categories)));
     if (info.children.length < 3) info.appendChild(mk("p", "dnone", "Details for this video will be added soon."));
     if (r.youtube) {
@@ -85,12 +82,13 @@ const REELS = [
       box.appendChild(b);
     });
   }
+  /* Cards rise up one by one when the section scrolls into view */
   if ("IntersectionObserver" in window) {
     new IntersectionObserver((en, ob) => { if (en[0].isIntersecting) { grid.classList.add("in"); ob.disconnect(); } }, { threshold: 0.15 }).observe(grid);
   } else grid.classList.add("in");
 })();
 
-/* ===== Software strip. Optional: add official logo files in assets/logos/ and set "logo" ===== */
+/* ===== Software cards. Optional: add official logo files in assets/logos/ and set "logo" ===== */
 const TOOLS = [
   { name: "Adobe After Effects", abbr: "Ae", bg: "#00005B", fg: "#D291FF", logo: "assets/logos/ae.png" },
   { name: "Adobe Premiere Pro", abbr: "Pr", bg: "#00005B", fg: "#9999FF", logo: "assets/logos/pr.png" },
@@ -192,7 +190,7 @@ const WHATSAPP_NUMBER = "919313816021"; /* country code + number, no + or spaces
   })();
 })();
 
-/* ===== Pages: Home, About, Skills, Contact (one file, switched by the # in the address) ===== */
+/* ===== Pages: Home, About, Skills, Contact, and a page for each video (switched by the # in the address) ===== */
 (function () {
   const PAGES = ["home", "about", "skills", "contact"];
   function route() {
