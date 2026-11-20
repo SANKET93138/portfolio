@@ -13,7 +13,7 @@ const REELS = [
     published: "", client: "", software: [], categories: [] },
   { title: "Reel 4", tag: "Reel", desc: "", id: "1Rgou8I6OPoDK4MEw-00ISd-hFGpnKqfS", youtube: "", duration: "",
     published: "", client: "", software: [], categories: [] },
-  { title: "Reel 5 IIM Visakhapatnam", tag: "Reel", desc: "", id: "1oXiOXxERlHQw4Yyz--s2eIqUniPmNacj", youtube: "", duration: "",
+  { title: "Reel 5 - IIM Visakhapatnam", tag: "Reel", desc: "", id: "1oXiOXxERlHQw4Yyz--s2eIqUniPmNacj", youtube: "", duration: "",
     published: "", client: "", software: [], categories: [] },
   { title: "Will Kejriwal Win Again? In-Depth Analysis of Delhi’s 2025 Election", tag: "Educational", desc: "", yt: "3Rdd6gd7Nmo",
     youtube: "https://www.youtube.com/watch?v=3Rdd6gd7Nmo", duration: "", published: "January 8, 2025", client: "Talksonground",
