@@ -5,9 +5,15 @@
    youtube = full YouTube link for the "Watch on YouTube" button. duration = for example "1:30".
    published, client, software ["A","B"], categories ["A","B"] = shown on the video page. Empty ones are hidden. ===== */
 const REELS = [
-  { title: "Reel 3", tag: "Reel", desc: "", id: "1mHYzUv5YS6Q1BEBqQZz69hK58uKP4eqj", youtube: "", duration: "",
+  { title: "Reel 1 - @iamsgoofficial", tag: "Reel", desc: "", id: "1mHYzUv5YS6Q1BEBqQZz69hK58uKP4eqj", youtube: "", duration: "",
     published: "", client: "", software: [], categories: [] },
-  { title: "Reel 4", tag: "Reel", desc: "", id: "1gxqARfd9dSUfk0F_YWLv1LvcJxH7yCMG", youtube: "", duration: "",
+  { title: "Reel 2 - Internsala client", tag: "Reel", desc: "", id: "1gxqARfd9dSUfk0F_YWLv1LvcJxH7yCMG", youtube: "", duration: "",
+    published: "", client: "", software: [], categories: [] },
+  { title: "Reel 3", tag: "Reel", desc: "", id: "1lptkiZiocL_QkLZN-AVak92x9TJ5GpTH", youtube: "", duration: "",
+    published: "", client: "", software: [], categories: [] },
+  { title: "Reel 4", tag: "Reel", desc: "", id: "1Rgou8I6OPoDK4MEw-00ISd-hFGpnKqfS", youtube: "", duration: "",
+    published: "", client: "", software: [], categories: [] },
+  { title: "Reel 5", tag: "Reel", desc: "", id: "1oXiOXxERlHQw4Yyz--s2eIqUniPmNacj", youtube: "", duration: "",
     published: "", client: "", software: [], categories: [] },
   { title: "Will Kejriwal Win Again? In-Depth Analysis of Delhi’s 2025 Election", tag: "Educational", desc: "", yt: "3Rdd6gd7Nmo",
     youtube: "https://www.youtube.com/watch?v=3Rdd6gd7Nmo", duration: "", published: "January 8, 2025", client: "Talksonground",
